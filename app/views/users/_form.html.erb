@@ -30,9 +30,25 @@
     <%=f.error_span(:account) %>
   </div>
   <div class="form-group">
+    <%= f.label :password, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.password_field :passsword, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:password) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.password_field :password_confirmation, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:password_confirmation) %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :image,  :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.file_field :image, accept: 'image/png', :class => 'form-control' %>
+      <%= f.file_field :image, :class => 'form-control' %>
     </div>
     <%=f.error_span(:image) %>
   </div>

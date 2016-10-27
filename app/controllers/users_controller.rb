@@ -29,11 +29,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.image = params[:user][:image].read # <= バイナリをセット
-    @user.data_type = params[:user][:image].content_type # <= ファイルタイプをセット
     respond_to do |format|
       if @user.save
-
+         @user.image = params[:user][:image].read # <= バイナリをセット
+         @user.data_type = params[:user][:image].content_type # <= ファイルタイプをセット
+         @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -84,6 +84,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :account)
+      params.require(:user).permit(:name, :account, :password, :password_confirmation,:image,:data_type)
     end
   end

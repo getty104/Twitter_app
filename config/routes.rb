@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
 	get    'login'   => 'sessions#new'
 	post   'login'   => 'sessions#create'
 	delete 'logout'  => 'sessions#destroy'
-	root 'sessions#new'
+	get    'home'    => 'static_pages#home'
+	root 'static_pages#home'
 	resources :users
 	resources :users do
 		member do

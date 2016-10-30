@@ -2,8 +2,9 @@
   <div class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-       <h4><%= link_to "User Page", current_user %><h4>
-         <dd><%= current_user.group %></dd>
+       <h4><%= link_to "User Page", current_user, :class => 'btn btn-primary' %><h4>
+         <dd>Group name:<%= current_user.group %></dd>
+         <dd>User name:<%= current_user.name %></dd>
        </div>
      </div>
    </div>

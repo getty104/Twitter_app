@@ -187,10 +187,10 @@ DEPENDENCIES
   jquery-rails
   less-rails
   listen (~> 3.0.5)
-  pg (= 0.17.1)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-  rails_12factor (= 0.0.2)
+  rails_12factor
   ruby
   sass-rails (~> 5.0)
   spring

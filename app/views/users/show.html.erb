@@ -8,6 +8,8 @@
   <dd><%= @user.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:account) %>:</strong></dt>
   <dd><%= @user.account %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:group) %>:</strong></dt>
+  <dd><%= @user.group %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= image_tag show_image_user_path(@user), :class => 'middle-img'%></dd>
 </dl>

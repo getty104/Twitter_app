@@ -7,12 +7,14 @@
   <dd><%= @user.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:account) %>:</strong></dt>
   <dd><%= @user.account %></dd>
+  <%if current_user.id == @user.id %>
   <dt><strong><%= model_class.human_attribute_name(:group) %>:</strong></dt>
   <dd><%= @user.group %></dd>
+  <%end%>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= image_tag show_image_user_path(@user), :class => 'middle-img'%></dd>
 </dl>
-
+<%if current_user.id == @user.id %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
 users_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -23,3 +25,4 @@ user_path(@user),
 :method => 'delete',
 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
 :class => 'btn btn-danger' %>
+<%end%>

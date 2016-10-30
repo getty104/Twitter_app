@@ -1,8 +1,8 @@
 <%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-
+<<div class="page-header">
+    <h1>TwitterApp　　<small>User List</small>     <small><%=link_to "Go HOME", home_path, class: "btn btn-success" %></small></h1>
 </div>
+
 <%if logged_in?%>
  <%= render 'layouts/header' %>
 <table class="table table-bordered">
@@ -29,6 +29,7 @@
   </tbody>
 </table>
 <%else%>
+<h2>You are not Login!</h2>
 <%= link_to "Please Log in", login_path,:class => 'btn btn-primary' %>
 <%end%>
 

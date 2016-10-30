@@ -1,10 +1,22 @@
 <% provide(:title, "Home") %>
 
-	<h1>Home</h1>
-
+<div class="page-header">
+	<h1>TwitterApp　　<small>HOME</small></h1>
+</div>
+<%if !logged_in?%>
 <p>
 	<%= link_to "Log in", login_path,:class => 'btn btn-primary btn-lg btn-block'%>
 </p>
 <p>
 	<%=link_to "Sign up", new_user_path,:class => 'btn btn-info btn-lg btn-block'%>
 </p>
+
+
+<%else%>
+<p>
+	<%= link_to "User List", users_path,:class => 'btn btn-primary btn-lg btn-block'%>
+</p>
+<p>
+	<%=link_to "Sign out", log_out, :method => 'delete', :class => 'btn btn-danger btn-lg btn-block'%>
+</p>
+<%end%>

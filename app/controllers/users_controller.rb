@@ -23,24 +23,25 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-    if params[:user][:image]
-      @user.image = params[:user][:image].read # <= バイナリをセット
-      @user.data_type = params[:user][:image].content_type # <= ファイルタイプをセット
+    if params[:user][:data]
+      @user.image = params[:user][:data].read # <= バイナリをセット
+      @user.data_type = params[:user][:data].content_type # <= ファイルタイプをセット
     end
     respond_to do |format|
       if @user.save
-      log_in @user
-       format.html { redirect_to @user, notice: 'User was successfully created.' }
-       format.json { render :show, status: :created, location: @user }
-     else
-      format.html { render :new }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+        log_in @user
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,6 +49,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
+    @user.image = params[:user][:data].read # <= バイナリをセット
+    @user.data_type = params[:user][:data].content_type # <= ファイルタイプをセット
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -86,7 +91,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :account, :image, :data_type, :password,
-                                                     :password_confirmation, :group)
+      params.require(:user).permit(:name, :account, :password,
+        :password_confirmation, :group, :data)
     end
   end

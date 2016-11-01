@@ -10,16 +10,15 @@ class SessionsController < ApplicationController
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
       log_in user
       redirect_to user
-  else
-  	render :new 
-  	flash.now[:danger] = 'Invalid account/password combination'
+    else
+     flash.now[:danger] = 'Account or Password is wrong'
+     render :new
+   end
+ end
 
-  end
-end
-
-def destroy
-	log_out
-	redirect_to root_url
-end
+ def destroy
+   log_out
+   redirect_to root_url
+ end
 
 end

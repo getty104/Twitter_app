@@ -10,10 +10,10 @@
     <dd><%= @user.account %></dd>
     <dt><strong><%= model_class.human_attribute_name(:group) %>:</strong></dt>
     <dd><%= @user.group %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-    <dd><%= image_tag show_image_user_path(@user), :class => 'middle-img'%></dd>
     <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
     <dd><%= @user.comment %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+    <dd><%= image_tag show_image_user_path(@user), :class => 'middle-img'%></dd>
     <%else%>
     <dd>Please Back</dd>
     <%= link_to t('.back', :default => t("helpers.links.back")),

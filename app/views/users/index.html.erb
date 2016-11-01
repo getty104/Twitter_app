@@ -1,17 +1,17 @@
 <%- model_class = User -%>
 <div class="page-header">
-    <h1>Identifer　　<small>User List</small></h1>
+  <h1>Identifer　　<small>User List</small></h1>
 </div>
 
 <%if logged_in?%>
- <%= render 'layouts/header' %>
+<%= render 'layouts/header' %>
 <table class="table table-bordered">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:account) %></th>
       <th><%= model_class.human_attribute_name(:image) %></th>
-     
+      
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,7 @@
       <td><%= user.account %></td>
       <td><%= image_tag show_image_user_path(user), :class => 'middle-img'%></td>      
     </tr>
-    <%end%>
+    <% end %>
     <% end %>
   </tbody>
 </table>

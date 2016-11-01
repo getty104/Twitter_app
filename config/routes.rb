@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	post   'login'   => 'sessions#create'
 	delete 'logout'  => 'sessions#destroy'
 	get    'home'    => 'static_pages#home'
+	
 	root 'static_pages#home'
 	resources :users
 	resources :users do

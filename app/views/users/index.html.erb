@@ -11,7 +11,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:account) %></th>
       <th><%= model_class.human_attribute_name(:image) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+     
     </tr>
   </thead>
   <tbody>
@@ -20,9 +20,7 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.account %></td>
-      <td><%= image_tag show_image_user_path(user), :class => 'middle-img'%></td>
-      <td><%=l user.created_at %></td>
-      
+      <td><%= image_tag show_image_user_path(user), :class => 'middle-img'%></td>      
     </tr>
     <%end%>
     <% end %>

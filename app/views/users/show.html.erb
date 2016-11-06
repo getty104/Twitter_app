@@ -17,7 +17,7 @@
         <tr>
           <td><%= image_tag show_image_user_path(@user), :class => 'middle-img'%></td> 
           <td><%= @user.name %></td>
-          <td><%= @user.account %></td>
+          <td><%= link_to @user.account, show_url_user_path(@user), :target=>["_blank"] %></td>
           <td><%= @user.comment %></td>     
         </tr>
       </tbody>

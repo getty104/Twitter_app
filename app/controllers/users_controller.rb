@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy,:show_image]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,:show_image,:show_url]
 
   # GET /users
   # GET /users.json
@@ -79,6 +79,10 @@ end
     # send_dataはバイナリファイルをブラウザに表示するため
     # http://railsdoc.com/references/send_data
     send_data(@user.image, type: @user.data_type, disposition: :inline)
+  end
+
+  def show_url
+    redirect_to "https://twitter.com/#{@user.account}"
   end
 
   

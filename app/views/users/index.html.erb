@@ -1,13 +1,16 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1>Identifer　　<small>User List</small></h1>
+  <h1 class = "text-info">Identifer　　<small>User List</small></h1>
 </div>
 
 <%if logged_in?%>
 <%= render 'layouts/header' %>
-<table class="table table-bordered">
+<div class="main">
+ <h2>Group name:<%= current_user.group %></h2>
+<div class = "table-responsive">
+<table class="table">
   <thead>
-    <tr>
+    <tr class = "warning table-set">
       <th><%= model_class.human_attribute_name(:image) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:account) %></th>
@@ -18,17 +21,18 @@
     <% @users.each do |user| %>
     <%if current_user.group == user.group && current_user.id != user.id %>
     <tr>
-      <td><%= image_tag show_image_user_path(user), :class => 'middle-img'%></td> 
+      <td><%= image_tag show_image_user_path(user), :size=>'100x100', :class => 'img-responsive center-block'%></td> 
       <td><%= user.name %></td>
-     <td><%= link_to user.account, show_url_user_path(user), :target=>["_blank"] %></td>
-      <td><%= user.comment %></td>     
+      <td><%= link_to user.account, show_url_user_path(user), :target=>["_blank"],:class=>"text-danger" %></td>
+      <td><%= user.comment %></td>
     </tr>
     <% end %>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 <%else%>
 <h2>You are not Login!</h2>
 <%= link_to "Please Log in", login_path,:class => 'btn btn-primary' %>
 <%end%>
-

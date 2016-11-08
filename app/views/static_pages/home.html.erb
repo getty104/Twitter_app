@@ -1,36 +1,28 @@
+
 <% provide(:title, "Home") %>
 
-
 <div class="page-header">
-	<h1>Identifer　　<small>HOME</small></h1>
+	<h1 class = "text-info">Identifer　　<small>HOME</small></h1>
 </div>
-<li>
-	<p>Identiferへようこそ！</p>
-</li>
-<li>
-<p>サークル、クラスの人のTwitterアカウントと名前、顔が一致しないことはありませんか？</p>
-</li>
-<li>
-	<p>このアプリケーションはTwitterアカウント名とユーザー情報をコミュニティーで共有できるアプリケーションです</p>
-</li>
-<li>
-	<p>Identiferを使えばどのアカウントが誰なのか一目瞭然です</p>
-</li>
+	<p class="text-center">Identiferへようこそ！<br>
+サークル、クラスの人のTwitterアカウントと名前、顔が一致しないことはありませんか？<br>
+	このアプリケーションはTwitterアカウント名とユーザー情報をコミュニティーで共有できるアプリケーションです<br>
+	Identiferを使えばどのアカウントが誰なのか一目瞭然です</p>
 
 
-<h1>使い方</h1>
+<h1 class="text-center text-primary">使い方</h1>
 
-<p>1.ユーザー登録を行ってください</p>
-<p>2.ユーザー登録時に設定したグループ名と同じグループ名を持つユーザーの名前、Twitterアカウント、Imageを閲覧することができます</p>
-<p>3.グループ名はユーザーページから変更することができます</p>
+<p class="text-center">ユーザー登録を行ってください<br>
+<!--<p class="text-center">-->ユーザー登録時に設定したグループ名と同じグループ名を持つユーザーの名前、Twitterアカウント、Imageを閲覧することができます<br><!--</p>-->
+グループ名はユーザーページから変更することができます</p>
 
-<h1>Update Info</h1>
-<p>コメントを追加できるようになりました</p>
-<p>アカウント名をクリックすると、Twitterページへ飛ぶようになりました</p>
+<h1 class="text-center text-primary">Update Info</h1>
+<p class="text-center">コメントを追加できるようになりました<br>
+アカウント名をクリックすると、Twitterページへ飛ぶようになりました</p>
 
-<p>
+<p class="text-center">
 	<%= link_to "Log in", login_path,:class => 'btn btn-primary btn-lg btn-block'%>
 </p>
-<p>
+<p class="text-center">
 	<%=link_to "Sign up", new_user_path,:class => 'btn btn-info btn-lg btn-block'%>
 </p>

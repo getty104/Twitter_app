@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+p {
+	line-height: 200%;
+}
+
+body{
+	background: url(/assets/home2.jpg); 
+    background-attachment:fixed;  
+	background-size: cover;
+	
+}
+
+.page-header{
+text-align: center;
+}
+

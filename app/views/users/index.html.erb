@@ -19,7 +19,7 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-    <%if current_user.group == user.group && current_user.id != user.id %>
+    <%if current_user.group == user.group%>
     <tr>
       <td><%= image_tag show_image_user_path(user), :size=>'100x100', :class => 'img-responsive center-block'%></td> 
       <td><%= user.name %></td>

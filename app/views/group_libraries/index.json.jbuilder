@@ -1,0 +1,1 @@
+json.array! @group_libraries, partial: 'group_libraries/group_library', as: :group_library

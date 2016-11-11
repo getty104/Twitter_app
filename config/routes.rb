@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :group_libraries
+  resources :groups
   get 'static_pages/home'
 
 	get    'login'   => 'sessions#new'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
 	root 'static_pages#home'
 	resources :users
 	resources :users do
+		resources :groups
 		member do
 			get 'show_image'
 			get 'show_url'

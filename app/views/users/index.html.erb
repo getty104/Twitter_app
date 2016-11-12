@@ -5,33 +5,37 @@
 
 <%if logged_in?%>
 <%= render 'layouts/header' %>
+<%if current_user.group  %>
 <div class="main">
  <h2>Group name:<%= current_user.group.try(:name) %></h2>
-<div class = "table-responsive">
-<table class="table">
-  <thead>
-    <tr class = "warning">
-      <th class="text-center">image</th>
-      <th class="text-center">name</th>
-      <th class="text-center">account</th>
-      <th class="text-center">comment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-    <%if current_user.group == user.group%>
-    <tr>
-      <td><%= image_tag show_image_user_path(user), :size=>'100x100', :class => 'img-responsive center-block'%></td> 
-      <td><%= user.name %></td>
-      <td><%= link_to user.account, show_url_user_path(user), :target=>["_blank"],:class=>"text-danger" %></td>
-      <td><%= user.comment %></td>
-    </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+ <div class = "table-responsive">
+  <table class="table">
+    <thead>
+      <tr class = "warning">
+        <th class="text-center">image</th>
+        <th class="text-center">name</th>
+        <th class="text-center">account</th>
+        <th class="text-center">comment</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% current_user.group.users.each do |user| %>
+
+      <tr>
+        <td><%= image_tag show_image_user_path(user), :size=>'100x100', :class => 'img-responsive center-block'%></td> 
+        <td><%= user.name %></td>
+        <td><%= link_to user.account, show_url_user_path(user), :target=>["_blank"],:class=>"text-danger" %></td>
+        <td><%= user.comment %></td>
+      </tr>
+
+      <% end %>
+    </tbody>
+  </table>
 </div>
 </div>
+<% else %>
+<h2>You don't belong groups</h2>
+<% end %>
 <%else%>
 <h2>You are not Login!</h2>
 <%= link_to "Please Log in", login_path,:class => 'btn btn-primary' %>

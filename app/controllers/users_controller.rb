@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user = User.find(params[:id])
-    
+
     if params[:user][:data]
     @user.image = params[:user][:data].read # <= バイナリをセット
     @user.data_type = params[:user][:data].content_type # <= ファイルタイプをセット
@@ -98,6 +98,6 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :account, :password,:image, :data_type,
-        :password_confirmation, :group_name, :data,:comment, :new_group, :select_group)
+        :password_confirmation, :group_name, :data,:comment, :new_group, :selected_group)
     end
   end

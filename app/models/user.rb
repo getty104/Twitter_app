@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :group, optional: true
-	attr_accessor :remember_token
+	attr_accessor :remember_token, :new_group, :selected_group
 	validates :name,  presence: true
 	validates :data,  presence: true
 	validates :account, presence: true, uniqueness: { case_sensitive: false }

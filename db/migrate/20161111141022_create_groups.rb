@@ -7,4 +7,6 @@ class CreateGroups < ActiveRecord::Migration[5.0]
     end
     add_index :groups, :name, unique: true
   end
+
+
 end

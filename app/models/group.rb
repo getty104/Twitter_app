@@ -1,3 +1,4 @@
 class Group < ApplicationRecord
-  belongs_to :user
+  has_many :users
+  validates :name, uniqueness: true, presence: true, allow_blank: false
 end

@@ -1,79 +1,84 @@
 <%= form_for @user, :html => { :class => "form-horizontal user" } do |f| %>
 
-  <% if @user.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+<% if @user.errors.any? %>
+<div id="error_expl" class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
 
-  <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
+<div class="form-group">
+  <%= f.label :name, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.text_field :name, :class => 'form-control' %>
   </div>
-  <div class="form-group">
-    <%= f.label "Twitter account", :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :account, :class => 'form-control' %>
-    </div>
-   
-  </div>
-   <div class="form-group">
-    <%= f.label :group, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :group, :class => 'form-control' %>
-    </div>
-   
-  </div>
+</div>
 
-  <div class="form-group">
-    <%= f.label :password, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.password_field :password, :class => 'form-control' %>
-    </div>
-   
+<div class="form-group">
+  <%= f.label "Twitter account", :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.text_field :account, :class => 'form-control' %>
   </div>
+</div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.password_field :password_confirmation, :class => 'form-control' %>
-    </div>
-    
-  </div>
 
-  <div class="form-group">
-    <%= f.label :image,  :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.file_field :data, :class => 'form-control' %>
-    </div>
-   
+<div class="form-group">
+  <%= f.label :password, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.password_field :password, :class => 'form-control' %>
   </div>
+</div>
 
+<div class="form-group">
+  <%= f.label :password_confirmation, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.password_field :password_confirmation, :class => 'form-control' %>
   </div>
-   <div class="form-group">
-    <%= f.label :comment, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :comment, :class => 'form-control' %>
-    </div>
-   
-  </div>
+</div>
 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                home_path, :class => 'btn btn-default' %>
-    </div>
+<div class="form-group">
+  <%= f.label :image,  :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.file_field :data, :class => 'form-control' %>
   </div>
+</div>
+
+<div class="form-group">
+  <%= f.label "既存の所属を選択", :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+   <%= f.collection_select :select_group, Group.all, :name, :name,:prompt => true %>
+ </div>
+</div>
+
+<div class="form-group">
+  <%= f.label "新しい所属を作成", :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.text_field :new_group, :class => 'form-control' %>
+  </div>
+</div>
+
+</div>
+<div class="form-group">
+  <%= f.label :comment, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.text_field :comment, :class => 'form-control' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-lg-offset-2 col-lg-10">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    home_path, :class => 'btn btn-default' %>
+  </div>
+</div>
+
 <% end %>

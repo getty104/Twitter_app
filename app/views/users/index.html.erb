@@ -6,7 +6,7 @@
 <%if logged_in?%>
 <%= render 'layouts/header' %>
 <div class="main">
- <h2>Group name:<%= current_user.group %></h2>
+ <h2>Group name:<%= current_user.group.try(:name) %></h2>
 <div class = "table-responsive">
 <table class="table">
   <thead>

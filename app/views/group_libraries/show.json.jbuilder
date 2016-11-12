@@ -1,1 +1,0 @@
-json.partial! "group_libraries/group_library", group_library: @group_library

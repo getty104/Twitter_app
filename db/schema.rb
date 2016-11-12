@@ -10,23 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111141346) do
-
-  create_table "group_libraries", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20161112023337) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
+    t.index ["name"], name: "index_groups_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer  "group_id"
     t.string   "name"
     t.string   "account"
     t.binary   "image"
@@ -37,7 +31,9 @@ ActiveRecord::Schema.define(version: 20161111141346) do
     t.binary   "data"
     t.string   "remember_digest"
     t.text     "comment"
+    t.string   "group_name"
     t.index ["account"], name: "index_users_on_account", unique: true
+    t.index ["group_id"], name: "index_users_on_group_id"
   end
 
 end

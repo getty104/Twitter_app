@@ -1,7 +1,5 @@
 <%- model_class = User -%>
-<div class="page-header">
-   <h1 class = "text-info">Identifer　　<small>User Page</small></h1>
-</div>
+<%= render :partial => 'layouts/header', locals: {page_name: 'User Page'} %>
 
   <dl class="dl-horizontal">
     <%if current_user.group == @user.group %>

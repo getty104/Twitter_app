@@ -1,10 +1,18 @@
 <%- model_class = User -%>
-<div class="page-header">
-  <h1 class = "text-info">Identifer　　<small>User List</small></h1>
-</div>
+
+<%= render :partial => 'layouts/header', locals: {page_name: 'User List'} %>
 
 <%if logged_in?%>
-<%= render 'layouts/header' %>
+ <div class="navbar navbar-body" role="navigation">
+    <div class="navbar-header">
+      <div class="container">
+      <tr>
+       <h4><%= link_to "User Page", current_user,:class => 'btn btn-success' %> <%= link_to "Create New Group", new_group_path,:class => 'btn btn-success' %></h4>
+
+         </tr>
+       </div>
+     </div>
+   </div>
 <%if current_user.group  %>
 <div class="main">
  <h2>Group name:<%= current_user.group.try(:name) %></h2>

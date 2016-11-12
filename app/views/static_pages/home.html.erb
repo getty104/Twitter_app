@@ -1,32 +1,32 @@
 
 <% provide(:title, "Home") %>
 
-<div class="page-header">
-	<h1 class = "text-info">Identifer　　<small>HOME</small></h1>
-</div>
-	<p class="text-center">Identiferへようこそ！<br>
-サークル、クラスの人のTwitterアカウントと名前、顔が一致しないことはありませんか？<br>
+<%= render :partial => 'layouts/header', locals: {page_name: 'HOME'} %>
+
+<p class="text-center">Identiferへようこそ！<br>
+	サークル、クラスの人のTwitterアカウントと名前、顔が一致しないことはありませんか？<br>
 	このアプリケーションはTwitterアカウント名とユーザー情報をコミュニティーで共有できるアプリケーションです<br>
 	Identiferを使えばどのアカウントが誰なのか一目瞭然です</p>
 
 
-<h1 class="text-center text-primary">使い方</h1>
+	<h1 class="text-center text-primary">使い方</h1>
 
-<p class="text-center">ユーザー登録を行ってください<br>
-<!--<p class="text-center">-->ユーザー登録時に設定したグループ名と同じグループ名を持つユーザーの名前、Twitterアカウント、Imageを閲覧することができます<br><!--</p>-->
-グループ名はユーザーページから変更することができます</p>
+	<p class="text-center">ユーザー登録を行ってください<br>
+		<!--<p class="text-center">-->ユーザー登録時に設定したグループ名と同じグループ名を持つユーザーの名前、Twitterアカウント、Imageを閲覧することができます<br><!--</p>-->
+		グループ名はユーザーページから変更することができます</p>
 
-<h1 class="text-center text-primary">Update Info</h1>
-<p class="text-center">
-コメントを追加できるようになりました<br>
-アカウント名をクリックすると、Twitterページへ飛ぶようになりました<br>
-レイアウトを向上させました
-</p>
-
-
-<p class="text-center">
-	<%= link_to "Log in", login_path,:class => 'btn btn-primary btn-lg btn-block'%>
-</p>
-<p class="text-center">
-	<%=link_to "Sign up", new_user_path,:class => 'btn btn-info btn-lg btn-block'%>
-</p>
+		<h1 class="text-center text-primary">Update Info</h1>
+		<div style="height:100px;overflow:auto;border:1px solid #aaa;padding:10px;width: 700px" class="center-block">
+			11/12: コメントを追加できるようになりました<br>
+			11/12: アカウント名をクリックすることで、Twitterページに飛べるようになりました<br>
+			11/12: レイアウトを向上させました<br>
+			11/12: グループ機能を変更しました。＊今までのグループは使用できなくなるので再度設定してください
+		</div>
+		<br>
+		<br>
+		<div class="center-block">
+			<%= link_to "Log in", login_path,:class => 'btn btn-primary btn-lg btn-block'%>
+		</div>
+		<div class="center-block">
+			<%=link_to "Sign up", new_user_path,:class => 'btn btn-info btn-lg btn-block' %>
+		</div>

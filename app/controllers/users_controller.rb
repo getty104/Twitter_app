@@ -98,6 +98,6 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :account, :password,:image, :data_type,
-        :password_confirmation, :group_name, :data,:comment, :new_group, :selected_group)
+        :password_confirmation, :group_name, :data,:comment)
     end
   end
